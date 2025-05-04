@@ -1,0 +1,23 @@
+name: Деплой flask-приложения
+
+on:
+  push:
+    branches:
+       - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+
+    steps:
+    - name: Клонируем репозиторий 
+      uses: action/checkout@v3
+
+
+    - name: Устанавливаем зависимости  
+      run: pip install -r requirements.txt 
+
+    - name: Запускаем flask-приложение 
+      run: python app.py
+
